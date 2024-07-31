@@ -1,0 +1,4 @@
+repository "My project@Escalator_Fan@cloud"
+  path "/"
+    br "/main"
+    co "/main"
