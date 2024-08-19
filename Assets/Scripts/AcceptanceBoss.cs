@@ -147,7 +147,7 @@ public class AcceptanceBoss : MonoBehaviour
         {
             // placeholder testing logic
             if (Random.Range(0, 1f) < 0.1f)
-                StartCoroutine(Chilling(3f));
+                StartCoroutine(Chilling(30f));
             if (distanceToPlayer > meleeDistance && distanceToPlayer < rangedDistance)
             {
                 if (stamina > 3f)
@@ -176,7 +176,7 @@ public class AcceptanceBoss : MonoBehaviour
         {
             if (Random.Range(0f, 1f) < 0.05f)
             {
-                StartCoroutine(Chilling(10f));
+                StartCoroutine(Chilling(20f));
             } else if (Random.Range(0f, 1f) < 0.5f)
             {
                 StartCoroutine(Dash(true)); // melee combo
@@ -186,11 +186,11 @@ public class AcceptanceBoss : MonoBehaviour
             }
         }
         // phase 3
-        else if (state == "chill" && phase == 3)
+        else if (state == "chill" && phase == 3 && attackCooldown <= 0f)
         {
             if (Random.Range(0f, 1f) < 0.05f)
             {
-                StartCoroutine(Chilling(5f));
+                StartCoroutine(Chilling(10f));
             }
             else if (Random.Range(0f, 1f) < 0.5f)
             {
@@ -214,23 +214,25 @@ public class AcceptanceBoss : MonoBehaviour
                 Debug.Log("Phase 2 attack");
                 transform.position = new Vector3(0, 5f, 0);
                 Instantiate(beacon, position - new Vector3(0, 10f), Quaternion.Euler(-90f, 0f, 0f));
-                player.transform.position = -directionToPlayer * 30f + new Vector3(0, 31.5f);
                 maxStamina = 100f;
                 staminaRechargeRate = 100f;
                 stamina = 100f;
-                rangedAttackingCooldown /= 2f;
-                rangedSpeed *= 2f;
-                meleeAttackingCooldown /=  2f;
-                attackCooldown = 0f;
+                rangedAttackingCooldown /= 1.5f;
+                rangedSpeed *= 1.5f;
+                meleeAttackingCooldown /=  1.5f;
+                attackCooldown = 1.5f;
                 stats.maxHealth = 1500f;
                 stats.health = stats.maxHealth;
                 stats.healthBar.maxHealth = stats.maxHealth;
                 stats.healthBar.SetHealth(stats.health);
                 foreach(GameObject pillar in pillars)
                 {
-                    pillar.GetComponent<Enemy>().dead = false;
-                    pillar.SetActive(true);
-                    pillar.GetComponent<Enemy>().TakeDamage(-pillar.GetComponent<Enemy>().maxHealth - 1f);
+                    if (pillar.GetComponent<Enemy>().dead)
+                    {
+                        pillar.SetActive(true);
+                        pillar.GetComponent<Enemy>().dead = false;
+                        pillar.GetComponent<Enemy>().TakeDamage(-pillar.GetComponent<Enemy>().maxHealth - 1f);
+                    }
                 }
                 state = "chill";
             }
@@ -239,20 +241,23 @@ public class AcceptanceBoss : MonoBehaviour
                 // phase 3 attack
                 Debug.Log("Phase 3 attack");
                 player.transform.position = initialPlayerPosition;
-                rangedAttackingCooldown /= 2f;
-                meleeAttackingCooldown /= 2f;
+                rangedAttackingCooldown /= 1.5f;
+                meleeAttackingCooldown /= 1.1f;
                 rangedDamage *= 1.3f;
                 meleeDamage *= 1.3f;
-                attackCooldown = 0f;
+                attackCooldown = 1.5f;
                 stats.maxHealth = 500f;
                 stats.healthBar.maxHealth = stats.maxHealth;
                 stats.health = stats.maxHealth;
                 stats.healthBar.SetHealth(stats.health);
                 foreach (GameObject pillar in pillars)
                 {
-                    pillar.GetComponent<Enemy>().dead = false;
-                    pillar.SetActive(true);
-                    pillar.GetComponent<Enemy>().TakeDamage(-pillar.GetComponent<Enemy>().maxHealth - 1f);
+                    if (pillar.GetComponent<Enemy>().dead)
+                    {
+                        pillar.SetActive(true);
+                        pillar.GetComponent<Enemy>().dead = false;
+                        pillar.GetComponent<Enemy>().TakeDamage(-pillar.GetComponent<Enemy>().maxHealth - 1f);
+                    }
                 }
                 state = "chill";
             }
@@ -396,7 +401,7 @@ public class AcceptanceBoss : MonoBehaviour
         stamina -= rangedStaminaCost;
         state = "ranged";
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
             UpdateTargetPosition();
 

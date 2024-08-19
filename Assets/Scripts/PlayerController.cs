@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     public float passiveHealRate;
 
+    public SillyCuber magicCube;
+
     [Header("Movement")]
     public GameObject playerCam;
     public CameraShake shake;
@@ -59,24 +61,13 @@ public class PlayerController : MonoBehaviour
     public bool canCast = true;
 
     public float spell1Cooldown;
-    public float spell2Cooldown;
-    /*public float spell3Cooldown;
-    public float spell4Cooldown;*/
+    // public float spell2Cooldown;
 
     private float spell1Timer;
-    private float spell2Timer;
-    /*private float spell3Timer;
-    private float spell4Timer;*/
-
-    public KeyCode spell1Key;
-    public KeyCode spell2Key;
-    /*public KeyCode spell3Key;
-    public KeyCode spell4Key;*/
+    // private float spell2Timer;
 
     public GameObject spell1Obj;
-    public GameObject spell2Obj;
-    /*public GameObject spell3Obj;
-    public GameObject spell4Obj;*/
+    // public GameObject spell2Obj;
     private GameObject currentSpellObj;
 
     public float maxCastDistance;
@@ -93,7 +84,6 @@ public class PlayerController : MonoBehaviour
     public float grappleShakeX;
     public float grappleShakeY;
     public LayerMask grappleLayer;
-    public KeyCode grappleKey = KeyCode.G;
     public bool canGrapple = true;
     public bool wholeSceneCanGrapple = true;
     public bool landToRefresh;
@@ -108,7 +98,11 @@ public class PlayerController : MonoBehaviour
     private GameObject currentGrappleObj;
 
     [Header("Keybinds")]
+    public KeyCode meleeBtn = KeyCode.Mouse0;
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode grappleKey = KeyCode.G;
+    public KeyCode spell1Key;
+    // public KeyCode spell2Key;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -155,6 +149,7 @@ public class PlayerController : MonoBehaviour
             shake = playerCam.GetComponent<CameraShake>();
         }
         volume = gameManager.volume;
+        magicCube = GameObject.Find("Magic Cube").GetComponent<SillyCuber>();
     }
 
     private void Update()
@@ -164,7 +159,7 @@ public class PlayerController : MonoBehaviour
             Die();
         } else if (passiveHealRate > 0f && health < maxHealth)
         {
-            TakeDamage(-passiveHealRate * Time.deltaTime);
+            // TakeDamage(-passiveHealRate * Time.deltaTime);
         }
 
         if (slowing)
@@ -182,7 +177,6 @@ public class PlayerController : MonoBehaviour
                 slowing = false;
             }
         }
-
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
         HandleState();
@@ -213,18 +207,20 @@ public class PlayerController : MonoBehaviour
         {
             spell1Timer -= Time.deltaTime;
         }
-        if (spell2Timer > 0)
+        /*if (spell2Timer > 0)
         {
             spell2Timer -= Time.deltaTime;
-        }
-        /*if (spell3Timer > 0)
-        {
-            spell3Timer -= Time.deltaTime;
-        }
-        if (spell4Timer > 0)
-        {
-            spell4Timer -= Time.deltaTime;
         }*/
+
+        if (Input.GetKeyDown(meleeBtn))
+        {
+            Melee();
+        }
+    }
+
+    public void Melee()
+    {
+        magicCube.Attack();
     }
 
     private void Jump()
@@ -311,8 +307,9 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        if (!godMode)
-            health -= _damage;
+        if (godMode && _damage > 0f)
+            _damage = 0f;
+        health -= _damage;
         healthBar.SetHealth(health);
         if (!damageVignetteActive && _damage > 0f)
             StartCoroutine(TakeDamageEffect());
@@ -389,31 +386,13 @@ public class PlayerController : MonoBehaviour
                 spell1Timer = spell1Cooldown;
             }
         }
-        if (spell2Timer <= 0 && Input.GetKeyDown(spell2Key) && canCast)
+        /*if (spell2Timer <= 0 && Input.GetKeyDown(spell2Key) && canCast)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, maxCastDistance, castLayers))
             {
                 currentSpellObj = Instantiate(spell2Obj, hit.point, Quaternion.identity);
                 spell2Timer = spell2Cooldown;
-            }
-        }
-        /*if (spell3Timer <= 0 && Input.GetKeyDown(spell3Key) && canCast)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, maxCastDistance, castLayers))
-            {
-                currentSpellObj = Instantiate(spell3Obj, hit.point, Quaternion.identity);
-                spell3Timer = spell3Cooldown;
-            }
-        }
-        if (spell4Timer <= 0 && Input.GetKeyDown(spell4Key) && canCast)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, maxCastDistance, castLayers))
-            {
-                currentSpellObj = Instantiate(spell4Obj, hit.point, Quaternion.identity);
-                spell4Timer = spell4Cooldown;
             }
         }*/
     }

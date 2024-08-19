@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12109381}
   m_Layer: 3
-  m_Name: F
+  m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5067,7 +5067,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LMB the bottom of the ball, then RMB
+  m_text: E the bottom of the ball, then RMB
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d9371a74d3aad642912bab77062ee8b, type: 2}
   m_sharedMaterial: {fileID: 1452078387162080244, guid: 2d9371a74d3aad642912bab77062ee8b, type: 2}
@@ -5714,11 +5714,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 1291559057}
+  accepted: 0
 --- !u!114 &633060068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7289,11 +7292,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 107619117}
+  accepted: 0
 --- !u!114 &753196623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7618,11 +7624,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 1660776419}
+  accepted: 0
 --- !u!114 &762339501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7866,11 +7875,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 1549719562}
+  accepted: 0
 --- !u!114 &791094979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11130,11 +11142,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 1173380537}
+  accepted: 0
 --- !u!114 &1140107364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14474,7 +14489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: F - Black Hole
+  m_text: LMB - Attack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d9371a74d3aad642912bab77062ee8b, type: 2}
   m_sharedMaterial: {fileID: 1452078387162080244, guid: 2d9371a74d3aad642912bab77062ee8b, type: 2}
@@ -14502,8 +14517,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.7
-  m_fontSizeBase: 1.7
+  m_fontSize: 1.6
+  m_fontSizeBase: 1.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14837,6 +14852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 401112091372771102, guid: 3f74066d9c9b8174ea42f7b3361f3851, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ea4c3cb4b6497b84197c7b0bf99c8fa2, type: 2}
     - target: {fileID: 6092928789417298381, guid: 3f74066d9c9b8174ea42f7b3361f3851, type: 3}
       propertyPath: m_Name
       value: Player
@@ -14901,7 +14920,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 401112091372771102, guid: 3f74066d9c9b8174ea42f7b3361f3851, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f74066d9c9b8174ea42f7b3361f3851, type: 3}
 --- !u!4 &1589474038 stripped
 Transform:
@@ -15190,7 +15210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LMB - Implosion
+  m_text: E - Implosion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d9371a74d3aad642912bab77062ee8b, type: 2}
   m_sharedMaterial: {fileID: 1452078387162080244, guid: 2d9371a74d3aad642912bab77062ee8b, type: 2}
@@ -16490,11 +16510,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 200985557}
+  accepted: 0
 --- !u!114 &1777420049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17040,11 +17063,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 324040764}
+  accepted: 0
 --- !u!114 &1831833621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17252,6 +17278,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3949241668966877209, guid: 1af8c7d87d4b19b4e835b36dffcd2309, type: 3}
+      propertyPath: stayDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949241668966877209, guid: 1af8c7d87d4b19b4e835b36dffcd2309, type: 3}
+      propertyPath: shakeAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949241668966877209, guid: 1af8c7d87d4b19b4e835b36dffcd2309, type: 3}
+      propertyPath: continuousDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7365433010233443168, guid: 1af8c7d87d4b19b4e835b36dffcd2309, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -19322,11 +19360,14 @@ MonoBehaviour:
   health: 50
   damage: 0
   stayDamage: 0
+  dieOnDeath: 1
+  dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
   hitEffect: {fileID: 5755682914735581060, guid: ef9175c3fb4edf944829cca7f20ae277, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 756524126}
+  accepted: 0
 --- !u!114 &2020858708
 MonoBehaviour:
   m_ObjectHideFlags: 0

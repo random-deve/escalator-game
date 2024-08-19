@@ -1715,6 +1715,7 @@ MonoBehaviour:
   targetObject: {fileID: 1345188125}
   particles: {fileID: 6740916473212803059, guid: 0e61d65db7d7e6347a9923db31f1429e, type: 3}
   disableTargetInitially: 1
+  enable: 1
 --- !u!1 &763939518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,9 +5259,9 @@ MonoBehaviour:
   firepoint: {fileID: 1513132911}
   projectile: {fileID: 6517024682590308705, guid: 17a36deabd18d26468673ed890d7246f, type: 3}
   rangedDamage: 5
-  rangedCooldown: 0.057142857
-  rangedSpeed: 300
-  rangedAttackingCooldown: 0.25
+  rangedCooldown: 0.1
+  rangedSpeed: 150
+  rangedAttackingCooldown: 10
   rangedStaminaCost: 0.33333334
 --- !u!114 &2066237142 stripped
 MonoBehaviour:

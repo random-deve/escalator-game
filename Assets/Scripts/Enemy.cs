@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public float maxHealth;
     public float health;
 
-
     public float damage;
     public float stayDamage;
     public bool dieOnDeath = true;
@@ -41,6 +40,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        GameObject.Find("Player").GetComponent<PlayerController>().TakeDamage(-damage/10f);
         if (healthBar != null)
             healthBar.SetHealth(health);
         if (hitEffect && Time.time >= lastHitEffectTime + hitEffectCooldown)

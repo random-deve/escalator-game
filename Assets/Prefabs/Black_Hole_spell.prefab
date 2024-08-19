@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44913c4789a7fa24db606c3055946f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GRAVITY_PULL: 500
+  GRAVITY_PULL: 2500
   m_GravityRadius: 2
 --- !u!114 &-1052277658336552216
 MonoBehaviour:
@@ -99,11 +99,11 @@ MonoBehaviour:
   die: 1
   dieAfter: 3
   damageTag: Enemy
-  hitDamage: 10
-  stayDamage: 20
+  hitDamage: 0
+  stayDamage: 0
   startDamageAfter: 0
-  stopDamageAfter: 3
-  continuousDamage: 1
+  stopDamageAfter: 0
+  continuousDamage: 0
   collisionDamage: 0
   dying: 0
   deathEffectDelay: 0
