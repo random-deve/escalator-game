@@ -8,7 +8,9 @@ public class BoidMovement : MonoBehaviour
     public float neighborDistance = 5f;
     public float separationDistance = 2f;
     public float maxSteerForce = 3f;
-    public float targetBiasStrength = 0.5f;  // Strength of bias towards player
+    public float targetBiasStrength = 0.1f;
+
+    public int maxFlockSize = 4;
 
     private Rigidbody rb;
     private Vector3 velocity;
@@ -22,7 +24,7 @@ public class BoidMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.FindWithTag("Player").transform;  // Assuming the player is tagged as "Player"
+        player = GameObject.Find("Player").transform;
         allBoids.Add(this);
     }
 
@@ -59,9 +61,18 @@ public class BoidMovement : MonoBehaviour
                                 separation += (transform.position - boid.transform.position) / distance;
                             }
                             neighborCount++;
+
+                            if (neighborCount >= maxFlockSize)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
+            }
+            if (neighborCount >= maxFlockSize)
+            {
+                break;
             }
         }
 
@@ -72,14 +83,12 @@ public class BoidMovement : MonoBehaviour
             separation = (separation / neighborCount).normalized * speed;
         }
 
-        // Add randomness to the movement
         Vector3 wanderForce = new Vector3(
             Random.Range(-1f, 1f),
             Random.Range(-1f, 1f),
             Random.Range(-1f, 1f)
         ).normalized * speed;
 
-        // Bias movement towards the player
         Vector3 targetDirection = (player.position - transform.position).normalized * speed;
         Vector3 biasedDirection = Vector3.Lerp(wanderForce, targetDirection, targetBiasStrength);
 
@@ -91,6 +100,7 @@ public class BoidMovement : MonoBehaviour
 
         UpdateSpatialGrid();
     }
+
 
     Vector3Int GetCellPosition(Vector3 position)
     {

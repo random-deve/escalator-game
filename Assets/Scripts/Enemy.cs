@@ -52,8 +52,7 @@ public class Enemy : MonoBehaviour
             Die();
         else if (health <= 0 && accepted && acceptedStats.phase < 3)
         {
-            maxHealth *= 2;
-            healthBar.maxHealth = maxHealth;
+            health = 10000f;
             acceptedStats.phase += 1;
             if (!acceptedStats.phase2AttackDone)
                 acceptedStats.state = "phase 2";

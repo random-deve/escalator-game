@@ -40,6 +40,7 @@ public class AcceptanceBoss : MonoBehaviour
     public GameObject beacon;
     public List<GameObject> pillars;
     public GameObject hatPrefab;
+    public GameObject blockPrefab;
 
     [Header("Info")]
     public string state = "chill";
@@ -213,7 +214,9 @@ public class AcceptanceBoss : MonoBehaviour
             {
                 // phase 2 attack
                 Debug.Log("Phase 2 attack");
-                transform.position = new Vector3(0, 5f, 0);
+                transform.position = new Vector3(0, 15f, 0);
+                StartCoroutine(HatSummoning(50, 0.1f));
+                StartCoroutine(BlockSummoning(10, 0.5f));
                 Instantiate(beacon, position - new Vector3(0, 10f), Quaternion.Euler(-90f, 0f, 0f));
                 maxStamina = 100f;
                 staminaRechargeRate = 100f;
@@ -221,7 +224,7 @@ public class AcceptanceBoss : MonoBehaviour
                 rangedAttackingCooldown /= 1.5f;
                 rangedSpeed *= 1.5f;
                 meleeAttackingCooldown /=  1.5f;
-                attackCooldown = 1.5f;
+                attackCooldown = 5f;
                 stats.maxHealth = 1500f;
                 stats.health = stats.maxHealth;
                 stats.healthBar.maxHealth = stats.maxHealth;
@@ -235,6 +238,7 @@ public class AcceptanceBoss : MonoBehaviour
                         pillar.GetComponent<Enemy>().TakeDamage(-pillar.GetComponent<Enemy>().maxHealth - 1f);
                     }
                 }
+
                 state = "chill";
             }
             else if (!phase3AttackDone)
@@ -424,11 +428,23 @@ public class AcceptanceBoss : MonoBehaviour
         state = "phase2attack";
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(hatPrefab, transform.position + new Vector3(0f, Random.Range(5f, 15f)), Quaternion.identity);
+            Instantiate(hatPrefab, transform.position + new Vector3(Random.Range(-10f, 10f), Random.Range(5f, 15f)), Quaternion.identity);
             yield return new WaitForSeconds(delay);
         }
         phase2AttackDone = true;
-        state = "idle";
+        state = "chill";
+    }
+
+    public IEnumerator BlockSummoning(float amount, float delay)
+    {
+        state = "phase2attack";
+        for (int i = 0; i < amount; i++)
+        {
+            Instantiate(blockPrefab, transform.position + new Vector3(Random.Range(-10f, 10f), Random.Range(5f, 15f)), Quaternion.identity);
+            yield return new WaitForSeconds(delay);
+        }
+        phase2AttackDone = true;
+        state = "chill";
     }
 
     private void OnDrawGizmos()

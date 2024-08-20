@@ -9869,8 +9869,8 @@ MonoBehaviour:
   die: 1
   dieAfter: 0.5
   damageTag: Enemy
-  hitDamage: 10
-  stayDamage: 10
+  hitDamage: 1
+  stayDamage: 1
   startDamageAfter: 0
   stopDamageAfter: 0
   continuousDamage: 0
@@ -9879,4 +9879,4 @@ MonoBehaviour:
   deathEffectDelay: 0
   deathEffect: {fileID: 0}
   shaker: {fileID: 0}
-  shakeAmount: 0
+  shakeAmount: 0.3

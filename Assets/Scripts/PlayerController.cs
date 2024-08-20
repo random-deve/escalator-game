@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCam;
     public CameraShake shake;
 
+    public bool canMove = true;
+
     private float initMoveSpeed;
     public float moveSpeed;
     private float initInitAirMove;
@@ -300,7 +302,7 @@ public class PlayerController : MonoBehaviour
         {
             GrappleMove();
         }
-        else
+        else if (canMove)
         {
             MovePlayer();
         }
@@ -311,6 +313,8 @@ public class PlayerController : MonoBehaviour
         if (godMode && _damage > 0f)
             _damage = 0f;
         health -= _damage;
+        if (health > maxHealth)
+            health = maxHealth;
         healthBar.SetHealth(health);
         if (!damageVignetteActive && _damage > 0f)
             StartCoroutine(TakeDamageEffect());

@@ -5299,7 +5299,8 @@ MonoBehaviour:
   - {fileID: 1503097535}
   - {fileID: 1811316183}
   - {fileID: 1452442558}
-  hatPrefab: {fileID: 0}
+  hatPrefab: {fileID: 3619774362100008140, guid: b84e89aad3e252a4e9c3d802f392f7d1, type: 3}
+  blockPrefab: {fileID: 2416365989037010561, guid: a4bde4f67d912c1419994cd8cb49d722, type: 3}
   state: chill
   phase: 1
   phase2AttackDone: 0
