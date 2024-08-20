@@ -9820,7 +9820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44913c4789a7fa24db606c3055946f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GRAVITY_PULL: -2500
+  GRAVITY_PULL: -250
   m_GravityRadius: 1
 --- !u!114 &4820542623959311499
 MonoBehaviour:

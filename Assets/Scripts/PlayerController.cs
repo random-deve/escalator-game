@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool godMode;
 
     public float passiveHealRate;
+    public bool saturationScaling = true;
 
     public SillyCuber magicCube;
 
@@ -313,7 +314,7 @@ public class PlayerController : MonoBehaviour
         healthBar.SetHealth(health);
         if (!damageVignetteActive && _damage > 0f)
             StartCoroutine(TakeDamageEffect());
-        if (volume.profile.TryGet(out ColorAdjustments adjustments))
+        if (volume.profile.TryGet(out ColorAdjustments adjustments) && saturationScaling)
         {
             adjustments.saturation.value = -Mathf.Lerp(100, 25, health/maxHealth);
         }

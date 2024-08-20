@@ -45,8 +45,9 @@ public class FollowerPatroller : MonoBehaviour
         }
         else
         {
+            rb.velocity = Vector3.zero;
             resetVelocity = false;
-            timer = 5f;
+            timer = Random.Range(3f, 7f);
         }
 
         float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);

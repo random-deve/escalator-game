@@ -32,6 +32,6 @@ Material:
     m_Floats:
     - _Amount: 0
     - _ScrollSpeed: 4
-    - _TimeOffset: 6.6248765
+    - _TimeOffset: 0.4465105
     m_Colors: []
   m_BuildTextureStacks: []

@@ -39,6 +39,7 @@ public class AcceptanceBoss : MonoBehaviour
     public Transform sword;
     public GameObject beacon;
     public List<GameObject> pillars;
+    public GameObject hatPrefab;
 
     [Header("Info")]
     public string state = "chill";
@@ -418,6 +419,17 @@ public class AcceptanceBoss : MonoBehaviour
         attackCooldown = rangedAttackingCooldown;
     }
 
+    public IEnumerator HatSummoning(float amount, float delay)
+    {
+        state = "phase2attack";
+        for (int i = 0; i < amount; i++)
+        {
+            Instantiate(hatPrefab, transform.position + new Vector3(0f, Random.Range(5f, 15f)), Quaternion.identity);
+            yield return new WaitForSeconds(delay);
+        }
+        phase2AttackDone = true;
+        state = "idle";
+    }
 
     private void OnDrawGizmos()
     {
