@@ -57,7 +57,7 @@ MonoBehaviour:
   timerStarted: 0
   pauseKey: 27
   regularTimeScale: 1
-  pausedTimeScale: 0.025
+  pausedTimeScale: 0.0025
   pauseMenuUI: {fileID: 0}
   settingsUI: {fileID: 0}
   playerCamera: {fileID: 0}
