@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12109381}
   m_Layer: 3
-  m_Name: E
+  m_Name: LMB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6020,7 +6020,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -6121,10 +6121,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 633060061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!1 &634257249
 GameObject:
   m_ObjectHideFlags: 0
@@ -7598,7 +7610,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -7699,10 +7711,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 753196616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!1001 &756524124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7930,7 +7954,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -8031,10 +8055,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 762339494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!1 &763939518
 GameObject:
   m_ObjectHideFlags: 0
@@ -8181,7 +8217,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -8282,10 +8318,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 791094972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!1 &793043796
 GameObject:
   m_ObjectHideFlags: 0
@@ -9643,6 +9691,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910933207}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &942460195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 942460196}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &942460196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942460195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.9, y: 37.156067, z: 305.67236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948211741
 GameObject:
   m_ObjectHideFlags: 0
@@ -11642,7 +11721,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -11743,10 +11822,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1140107357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!114 &1143834855 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7108913388297866123, guid: b4d4cfe60f194214bb336569623f415c, type: 3}
@@ -13750,7 +13841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363562580}
   m_Layer: 3
-  m_Name: LMB
+  m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17010,7 +17101,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -17111,10 +17202,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1777420042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!1 &1778613499
 GameObject:
   m_ObjectHideFlags: 0
@@ -17563,7 +17666,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -17664,10 +17767,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1831833614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!1 &1837745306
 GameObject:
   m_ObjectHideFlags: 0
@@ -19856,7 +19971,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -19957,10 +20072,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2020858701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63746b396427923408a1fdcfdc61229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bf69e4d62b46b4293222688e0b79ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099826974}
+  target: {fileID: 1158092200}
+  rb: {fileID: 0}
+  followPower: 0.05
+  usedFollowPower: 0
+  rigid: 1
+  looker: 1
+  drawRange: 0
+  patrolRange: 30
+  followDistance: 15
+  patrolSpeed: 5
+  patrolBounds: 1
+  patrolBoundsMin: {x: -50, y: 37, z: 200}
+  patrolBoundsMax: {x: 50, y: 77, z: 320}
 --- !u!1 &2029238107
 GameObject:
   m_ObjectHideFlags: 0
