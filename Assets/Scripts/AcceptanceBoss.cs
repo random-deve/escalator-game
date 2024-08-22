@@ -181,11 +181,11 @@ public class AcceptanceBoss : MonoBehaviour
             {
                 StartCoroutine(Chilling(20f));
             }
-            else if (Random.Range(0f, 1f) < 0.5f)
+            else if (Random.Range(0f, 1f) < 0.1f)
             {
                 StartCoroutine(Erupt());
             }
-            else if (Random.Range(0f, 1f) < 0.5f)
+            else if (Random.Range(0f, 1f) < 0.75f)
             {
                 StartCoroutine(Dash(true)); // melee combo
             }
@@ -195,17 +195,17 @@ public class AcceptanceBoss : MonoBehaviour
             }
         }
         // phase 3
-        else if (state == "chill" && phase == 3 && attackCooldown <= 0f)
+        else if (state == "chill" && phase == 3)
         {
             if (Random.Range(0f, 1f) < 0.025f)
             {
-                StartCoroutine(Chilling(10f));
+                StartCoroutine(Chilling(1f));
             }
             else if (Random.Range(0f, 1f) < 0.5f)
             {
                 StartCoroutine(Dash(true)); // melee combo
             }
-            else if (Random.Range(0f, 1f) < 0.5f)
+            else if (Random.Range(0f, 1f) < 0.3f)
             {
                 StartCoroutine(Erupt());
             }
@@ -287,14 +287,7 @@ public class AcceptanceBoss : MonoBehaviour
     {
         state = "chilling fr";
         float elapsed = 0.0f;
-        while (elapsed < duration)
-        {
-            stats.health += Time.deltaTime * (stats.maxHealth / 100f);
-            yield return null;
-            elapsed += Time.deltaTime;
-        }
-        if (stats.health > stats.maxHealth)
-            stats.health = stats.maxHealth;
+        yield return new WaitForSeconds(duration);
         state = "chill";
     }
 
@@ -304,7 +297,7 @@ public class AcceptanceBoss : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             rb.velocity = Vector3.zero;
-            stats.TakeDamage(10f);
+                stats.TakeDamage(2.5f);
             Instantiate(eruptionPrefab, playerPosition, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
         }

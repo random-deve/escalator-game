@@ -3116,7 +3116,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345772622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5197,7 +5197,6 @@ GameObject:
   - component: {fileID: 2056549048}
   - component: {fileID: 2056549050}
   - component: {fileID: 2056549049}
-  - component: {fileID: 2056549052}
   m_Layer: 9
   m_Name: Boss fr fr
   m_TagString: Enemy
@@ -5214,8 +5213,8 @@ Transform:
   m_GameObject: {fileID: 2056549046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 50, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 721265022}
   - {fileID: 1513132911}
@@ -5321,7 +5320,7 @@ MonoBehaviour:
   attackTarget: {fileID: 1345772623}
   directionToTarget: {x: 0, y: 0, z: 0}
   distanceToTarget: 0
-  meleeDistance: 10
+  meleeDistance: 25
   rangedDistance: 100
   stamina: 10
   maxStamina: 10
@@ -5330,14 +5329,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackCooldown: 0
-  dashPauseTime: 0.075
+  dashPauseTime: 0.1
   dashCloseEnoughDistance: 0.5
   comboAtkNum: 0
   dashStaminaCost: 0.1
   meleeTiltAngle: 45
   meleeTiltDuration: 0.028571429
   meleeSlashDownDuration: 0.028571429
-  meleeRange: 5
+  meleeRange: 10
   meleeDamage: 5
   meleeAttackingCooldown: 0.5
   meleeStaminaCost: 1
@@ -5348,24 +5347,6 @@ MonoBehaviour:
   rangedSpeed: 150
   rangedAttackingCooldown: 10
   rangedStaminaCost: 0.33333334
---- !u!114 &2056549052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056549046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79f20fc755c39648b9b5b88354ea9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 50
-  neighborDistance: 5
-  separationDistance: 2
-  maxSteerForce: 3
-  targetBiasStrength: 0.2
-  maxFlockSize: 4
 --- !u!114 &2066237142 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7108913388281300410, guid: b4d4cfe60f194214bb336569623f415c, type: 3}
