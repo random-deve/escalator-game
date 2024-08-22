@@ -40,7 +40,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        GameObject.Find("Player").GetComponent<PlayerController>().TakeDamage(-damage/10f);
         if (healthBar != null)
             healthBar.SetHealth(health);
         if (hitEffect && Time.time >= lastHitEffectTime + hitEffectCooldown)
@@ -64,6 +63,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        GameObject.Find("Player").GetComponent<PlayerController>().TakeDamage(-maxHealth / 10f);
         dead = true;
         if (deathEffect)
             Instantiate(deathEffect, transform.position, Quaternion.identity);

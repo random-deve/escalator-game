@@ -5213,7 +5213,7 @@ Transform:
   m_GameObject: {fileID: 2056549046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 50, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 721265022}
@@ -5320,7 +5320,7 @@ MonoBehaviour:
   attackTarget: {fileID: 1345772623}
   directionToTarget: {x: 0, y: 0, z: 0}
   distanceToTarget: 0
-  meleeDistance: 25
+  meleeDistance: 10
   rangedDistance: 100
   stamina: 10
   maxStamina: 10
@@ -5328,7 +5328,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldown: 0
+  attackCooldown: 0.5
   dashPauseTime: 0.1
   dashCloseEnoughDistance: 0.5
   comboAtkNum: 0
@@ -5336,7 +5336,7 @@ MonoBehaviour:
   meleeTiltAngle: 45
   meleeTiltDuration: 0.028571429
   meleeSlashDownDuration: 0.028571429
-  meleeRange: 10
+  meleeRange: 5
   meleeDamage: 5
   meleeAttackingCooldown: 0.5
   meleeStaminaCost: 1
