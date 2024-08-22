@@ -41,6 +41,7 @@ public class AcceptanceBoss : MonoBehaviour
     public List<GameObject> pillars;
     public GameObject hatPrefab;
     public GameObject blockPrefab;
+    public GameObject eruptionPrefab;
 
     [Header("Info")]
     public string state = "chill";
@@ -163,7 +164,7 @@ public class AcceptanceBoss : MonoBehaviour
                 if (Random.Range(0f, 1f) < 0.99f)
                     StartCoroutine(RangedAttack());
                 else
-                    StartCoroutine(Dash(false));
+                    StartCoroutine(Erupt());
             }
             else if (distanceToPlayer < meleeDistance)
             {
@@ -179,10 +180,16 @@ public class AcceptanceBoss : MonoBehaviour
             if (Random.Range(0f, 1f) < 0.05f)
             {
                 StartCoroutine(Chilling(20f));
-            } else if (Random.Range(0f, 1f) < 0.5f)
+            }
+            else if (Random.Range(0f, 1f) < 0.5f)
+            {
+                StartCoroutine(Erupt());
+            }
+            else if (Random.Range(0f, 1f) < 0.5f)
             {
                 StartCoroutine(Dash(true)); // melee combo
-            } else
+            }
+            else
             {
                 StartCoroutine(RangedAttack());
             }
@@ -190,7 +197,7 @@ public class AcceptanceBoss : MonoBehaviour
         // phase 3
         else if (state == "chill" && phase == 3 && attackCooldown <= 0f)
         {
-            if (Random.Range(0f, 1f) < 0.05f)
+            if (Random.Range(0f, 1f) < 0.025f)
             {
                 StartCoroutine(Chilling(10f));
             }
@@ -200,8 +207,13 @@ public class AcceptanceBoss : MonoBehaviour
             }
             else if (Random.Range(0f, 1f) < 0.5f)
             {
+                StartCoroutine(Erupt());
+            }
+            else if (Random.Range(0f, 1f) < 0.5f)
+            {
                 StartCoroutine(RangedAttack());
-            } else
+            }
+            else
             {
                 StartCoroutine(Dash(true));
                 StartCoroutine(RangedAttack());
@@ -264,7 +276,9 @@ public class AcceptanceBoss : MonoBehaviour
                         pillar.GetComponent<Enemy>().TakeDamage(-pillar.GetComponent<Enemy>().maxHealth - 1f);
                     }
                 }
+                attackCooldown = 2.5f;
                 state = "chill";
+                StartCoroutine(Chilling(1f));
             }
         }
     }
@@ -272,7 +286,28 @@ public class AcceptanceBoss : MonoBehaviour
     public IEnumerator Chilling(float duration)
     {
         state = "chilling fr";
-        yield return new WaitForSeconds(duration);
+        float elapsed = 0.0f;
+        while (elapsed < duration)
+        {
+            stats.health += Time.deltaTime * (stats.maxHealth / 100f);
+            yield return null;
+            elapsed += Time.deltaTime;
+        }
+        if (stats.health > stats.maxHealth)
+            stats.health = stats.maxHealth;
+        state = "chill";
+    }
+
+    public IEnumerator Erupt()
+    {
+        state = "erupting";
+        for (int i = 0; i < 10; i++)
+        {
+            rb.velocity = Vector3.zero;
+            stats.TakeDamage(10f);
+            Instantiate(eruptionPrefab, playerPosition, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+        }
         state = "chill";
     }
 
@@ -406,7 +441,7 @@ public class AcceptanceBoss : MonoBehaviour
         stamina -= rangedStaminaCost;
         state = "ranged";
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 10; i++)
         {
             UpdateTargetPosition();
 
