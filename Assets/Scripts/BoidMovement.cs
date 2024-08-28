@@ -10,8 +10,6 @@ public class BoidMovement : MonoBehaviour
     public float maxSteerForce = 3f;
     public float targetBiasStrength = 0.1f;
 
-    public int maxFlockSize = 4;
-
     private Rigidbody rb;
     private Vector3 velocity;
     private Vector3 acceleration;
@@ -29,6 +27,12 @@ public class BoidMovement : MonoBehaviour
     }
 
     void OnDestroy()
+    {
+        allBoids.Remove(this);
+        spatialGrid.Clear();
+    }
+
+    void OnDisable()
     {
         allBoids.Remove(this);
         spatialGrid.Clear();
@@ -60,19 +64,9 @@ public class BoidMovement : MonoBehaviour
                             {
                                 separation += (transform.position - boid.transform.position) / distance;
                             }
-                            neighborCount++;
-
-                            if (neighborCount >= maxFlockSize)
-                            {
-                                break;
-                            }
                         }
                     }
                 }
-            }
-            if (neighborCount >= maxFlockSize)
-            {
-                break;
             }
         }
 
