@@ -6126,14 +6126,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}
@@ -7716,14 +7716,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}
@@ -8060,14 +8060,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}
@@ -8323,14 +8323,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}
@@ -11827,14 +11827,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}
@@ -17207,14 +17207,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}
@@ -17772,14 +17772,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}
@@ -20077,14 +20077,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1158092200}
   rb: {fileID: 0}
-  followPower: 0.05
+  followPower: 0.2
   usedFollowPower: 0
   rigid: 1
   looker: 1
   drawRange: 0
   patrolRange: 30
   followDistance: 15
-  patrolSpeed: 5
+  patrolSpeed: 20
   patrolBounds: 1
   patrolBoundsMin: {x: -50, y: 37, z: 200}
   patrolBoundsMax: {x: 50, y: 77, z: 320}

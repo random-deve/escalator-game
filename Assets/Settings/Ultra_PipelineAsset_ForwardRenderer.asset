@@ -16,6 +16,21 @@ MonoBehaviour:
   settings:
     glitchMaterial: {fileID: 2100000, guid: 8c7f31021c975a74a8ce0315c0de613f, type: 2}
     glitchAmount: 0
+--- !u!114 &-3100498644136543069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fa920c188ffc845b87ebdad641f1c1, type: 3}
+  m_Name: CrossHatchEffect
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    material: {fileID: 2100000, guid: 7e0737ae937202e41b4b831d9127f98b, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +47,8 @@ MonoBehaviour:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
   m_RendererFeatures:
   - {fileID: -6233566097598979367}
-  m_RendererFeatureMap: d9e2b13ca9ec7da9
+  - {fileID: 5493050076468454201}
+  m_RendererFeatureMap: d9e2b13ca9ec7da939a355edf03b3b4c
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -70,6 +86,20 @@ MonoBehaviour:
   m_ClusteredRendering: 0
   m_TileSize: 32
   m_IntermediateTextureMode: 1
+--- !u!114 &5493050076468454201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40dc8ad62b135e44ac0720cb9071ae2, type: 3}
+  m_Name: PosterizeEffect
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  posterizeMaterial: {fileID: 2100000, guid: f8950ded17bb251468ccb7114cfb7c29, type: 2}
 --- !u!114 &6126683808808184026
 MonoBehaviour:
   m_ObjectHideFlags: 0
