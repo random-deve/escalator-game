@@ -227,8 +227,8 @@ public class AcceptanceBoss : MonoBehaviour
                 // phase 2 attack
                 Debug.Log("Phase 2 attack");
                 transform.position = new Vector3(0, 15f, 0);
-                StartCoroutine(HatSummoning(10, 0.1f));
-                StartCoroutine(BlockSummoning(10, 0.5f));
+                StartCoroutine(HatSummoning(5, 0.1f));
+                StartCoroutine(BlockSummoning(2, 0.5f));
                 Instantiate(beacon, position - new Vector3(0, 10f), Quaternion.Euler(-90f, 0f, 0f));
                 maxStamina = 100f;
                 staminaRechargeRate = 100f;
