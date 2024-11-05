@@ -9,6 +9,7 @@ public class Floater : MonoBehaviour
     public float rotationSpeed = 50f;
     public bool _float = true;
     public bool killOnPlayerContact = false;
+    public AudioClip deathSound;
 
     public Vector3 rotateVector = new Vector3(0, 1, 0);
     public Vector3 floatOffset;
@@ -39,6 +40,8 @@ public class Floater : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && killOnPlayerContact)
         {
+            if (deathSound)
+                GameObject.FindAnyObjectByType<AudioSource>().PlayOneShot(deathSound);
             Destroy(gameObject);
         }
     }

@@ -42,6 +42,8 @@ public class SillyCuber : MonoBehaviour
         rotationVector = new Vector3(-0.01f, 1, 0.01f);
         rotationSpeed = 360f;
 
+        player.source.PlayOneShot(player.softAttackSound);
+
         // move forward
         float thingy = 0.0f;
         while (thingy < 0.1f)

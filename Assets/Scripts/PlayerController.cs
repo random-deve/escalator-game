@@ -113,6 +113,16 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
     public bool walling;
 
+    [Header("Sound")]
+    public AudioSource source;
+    public AudioClip takeDamageSound;
+    public AudioClip heavyAttackSound;
+    public AudioClip softAttackSound;
+    public AudioClip grappleSound;
+    public AudioClip collectSound;
+
+    [Header("Other")]
+
     public Transform orientation;
 
     float horizontalInput;
@@ -153,6 +163,15 @@ public class PlayerController : MonoBehaviour
         }
         volume = gameManager.volume;
         magicCube = GameObject.Find("Magic Cube").GetComponent<SillyCuber>();
+        source = GameObject.FindObjectOfType<AudioSource>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Collectible"))
+        {
+            source.PlayOneShot(collectSound);
+        }
     }
 
     private void Update()
@@ -160,10 +179,10 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Die();
-        } else if (passiveHealRate > 0f && health < maxHealth)
-        {
+        } // else if (passiveHealRate > 0f && health < maxHealth)
+        // {
             // TakeDamage(-passiveHealRate * Time.deltaTime);
-        }
+        // }
 
         if (slowing)
         {
@@ -246,6 +265,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrappling)
                 EndGrapple();
+            source.PlayOneShot(grappleSound);
             gravMod = initGravMod;
             grapplePoint = hit.point;
             isGrappling = true;
@@ -328,11 +348,16 @@ public class PlayerController : MonoBehaviour
     {
         if (volume.profile.TryGet(out Vignette vignette))
         {
+            if (damageVignetteActive == true)
+                yield return null;
+
             damageVignetteActive = true;
+            source.PlayOneShot(takeDamageSound);
 
             float elapsed = 0f;
             float intensity = damageVignette;
             vignette.color.value = Color.red;
+
 
             while (elapsed < damageVignetteTime)
             {
@@ -388,6 +413,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, maxCastDistance, castLayers))
             {
                 currentSpellObj = Instantiate(spell1Obj, hit.point, Quaternion.identity);
+                source.PlayOneShot(heavyAttackSound);
                 spell1Timer = spell1Cooldown;
             }
         }

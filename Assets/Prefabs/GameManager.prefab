@@ -76,5 +76,5 @@ MonoBehaviour:
   bloomSlider: {fileID: 0}
   motionBlurSlider: {fileID: 0}
   chromaticAbberationSlider: {fileID: 0}
-  targetPortalCamera: {fileID: 0}
-  targetPortalCameraMat: {fileID: 0}
+  source: {fileID: 0}
+  levelFinishSound: {fileID: 8300000, guid: 3a073ac1af6b89c478fb87890efc873e, type: 3}

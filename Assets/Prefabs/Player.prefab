@@ -205,9 +205,11 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   godMode: 0
   passiveHealRate: 3.3333333
+  saturationScaling: 1
   magicCube: {fileID: 0}
   playerCam: {fileID: 0}
   shake: {fileID: 0}
+  canMove: 1
   moveSpeed: 15
   airMoveSpeed: 15
   slowing: 0
@@ -259,6 +261,12 @@ MonoBehaviour:
     m_Bits: 521
   grounded: 1
   walling: 0
+  source: {fileID: 0}
+  takeDamageSound: {fileID: 8300000, guid: f71b46f132f94324e94cd29478bd16a8, type: 3}
+  heavyAttackSound: {fileID: 8300000, guid: 06c531f02e2bd524da17def4d06686b8, type: 3}
+  softAttackSound: {fileID: 8300000, guid: 20432fdf8d16d5a4aa718a361f864124, type: 3}
+  grappleSound: {fileID: 8300000, guid: 3a073ac1af6b89c478fb87890efc873e, type: 3}
+  collectSound: {fileID: 8300000, guid: bed46087c343aea49903ff44edcd96b2, type: 3}
   orientation: {fileID: 6092928789397702452}
   state: 0
 --- !u!136 &4727245517918356384

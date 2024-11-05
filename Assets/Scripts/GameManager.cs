@@ -56,9 +56,8 @@ public class GameManager : MonoBehaviour
     public Slider motionBlurSlider;
     public Slider chromaticAbberationSlider;
 
-    [Header("Portal Texture")]
-    public Camera targetPortalCamera;
-    public Material targetPortalCameraMat;
+    public AudioSource source;
+    public AudioClip levelFinishSound;
 
     private void Awake()
     {
@@ -73,14 +72,7 @@ public class GameManager : MonoBehaviour
 
         levelTimerText.text = levelTimer.ToString("0#.00");
         playerStartPosition = player.transform.position;
-
-        if (targetPortalCamera)
-        {
-            if (targetPortalCamera.targetTexture != null)
-                targetPortalCamera.targetTexture.Release();
-            targetPortalCamera.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-            targetPortalCameraMat.mainTexture = targetPortalCamera.targetTexture;
-        }
+        source = GameObject.FindObjectOfType<AudioSource>();
     }
 
     private void Update()
@@ -181,6 +173,7 @@ public class GameManager : MonoBehaviour
 
     public void FinishLevel()
     {
+        source.PlayOneShot(levelFinishSound);
         countTime = false;
         levelEndUI.SetActive(true);
         levelEndTime.text = levelTimerText.text;

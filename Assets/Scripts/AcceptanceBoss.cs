@@ -286,7 +286,6 @@ public class AcceptanceBoss : MonoBehaviour
     public IEnumerator Chilling(float duration)
     {
         state = "chilling fr";
-        float elapsed = 0.0f;
         yield return new WaitForSeconds(duration);
         state = "chill";
     }

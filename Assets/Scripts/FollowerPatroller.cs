@@ -39,6 +39,16 @@ public class FollowerPatroller : MonoBehaviour
 
     private void Update()
     {
+        float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+        if (distanceToTarget <= followDistance)
+        {
+            FollowTarget();
+        }
+        else
+        {
+            Patrol();
+        }
+
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -48,16 +58,6 @@ public class FollowerPatroller : MonoBehaviour
             rb.velocity = Vector3.zero;
             resetVelocity = false;
             timer = Random.Range(3f, 7f);
-        }
-
-        float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
-        if (distanceToTarget <= followDistance)
-        {
-            FollowTarget();
-        }
-        else
-        {
-            Patrol();
         }
     }
 

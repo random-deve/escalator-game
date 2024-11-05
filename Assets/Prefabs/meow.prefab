@@ -135,7 +135,6 @@ MonoBehaviour:
   separationDistance: 1
   maxSteerForce: 3
   targetBiasStrength: 0.3
-  maxFlockSize: 3
 --- !u!114 &2416365989037010569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +155,8 @@ MonoBehaviour:
   dead: 0
   deathEffect: {fileID: 5878302596808898068, guid: 41b41f56e7669594bac036bd1097f704, type: 3}
   hitEffect: {fileID: 5878302596808898068, guid: 56c5f787eb736a347af4fcec03c11947, type: 3}
+  source: {fileID: 0}
+  deathSfx: {fileID: 8300000, guid: bed46087c343aea49903ff44edcd96b2, type: 3}
   hitEffectCooldown: 0.2
   lastHitEffectTime: 0
   healthBar: {fileID: 0}

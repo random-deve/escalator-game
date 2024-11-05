@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     public GameObject deathEffect;
     public GameObject hitEffect;
 
+    public AudioSource source;
+    public AudioClip deathSfx;
+
     public float hitEffectCooldown = 0.2f;
     public float lastHitEffectTime;
 
@@ -31,7 +34,7 @@ public class Enemy : MonoBehaviour
             healthBar.maxHealth = maxHealth;
             healthBar.SetHealth(health);
         }
-
+        source = GameObject.FindObjectOfType<AudioSource>();
         acceptedStats = GetComponent<AcceptanceBoss>();
         if (acceptedStats != null)
             accepted = true;
@@ -64,6 +67,8 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         GameObject.Find("Player").GetComponent<PlayerController>().TakeDamage(-maxHealth / 10f);
+        source.PlayOneShot(deathSfx);
+
         dead = true;
         if (deathEffect)
             Instantiate(deathEffect, transform.position, Quaternion.identity);
