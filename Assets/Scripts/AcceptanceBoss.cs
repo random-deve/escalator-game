@@ -259,8 +259,8 @@ public class AcceptanceBoss : MonoBehaviour
                 player.transform.position = initialPlayerPosition;
                 rangedAttackingCooldown /= 1.5f;
                 meleeAttackingCooldown /= 1.1f;
-                rangedDamage *= 1.3f;
-                meleeDamage *= 1.3f;
+                rangedDamage *= 1.2f;
+                meleeDamage *= 1.6f;
                 attackCooldown = 1.5f;
                 stats.maxHealth = 1000f;
                 stats.healthBar.maxHealth = stats.maxHealth;
