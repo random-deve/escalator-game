@@ -263,7 +263,7 @@ public class AcceptanceBoss : MonoBehaviour
                 rangedDamage *= 1.3f;
                 meleeDamage *= 1.3f;
                 attackCooldown = 1.5f;
-                stats.maxHealth = 500f;
+                stats.maxHealth = 1000f;
                 stats.healthBar.maxHealth = stats.maxHealth;
                 stats.health = stats.maxHealth;
                 stats.healthBar.SetHealth(stats.health);
