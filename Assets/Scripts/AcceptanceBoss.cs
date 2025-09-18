@@ -148,7 +148,6 @@ public class AcceptanceBoss : MonoBehaviour
         // phase 1
         if (state == "chill" && attackCooldown <= 0f && stamina >= 0.5f && phase == 1)
         {
-            // placeholder testing logic
             if (Random.Range(0, 1f) < 0.1f)
                 StartCoroutine(Chilling(30f));
             if (distanceToPlayer > meleeDistance && distanceToPlayer < rangedDistance)
